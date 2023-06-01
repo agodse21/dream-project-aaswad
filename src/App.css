@@ -1,7 +1,15 @@
 .App {
   text-align: center;
 }
-
+.font-face-pt {
+  font-family: "FuturaPTCondBook";
+ }
+.welcomeMainImg{
+  background-image: url("./assets/welcome_lunchBox.jpg"); 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

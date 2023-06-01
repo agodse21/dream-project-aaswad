@@ -1,3 +1,6 @@
 {
-  "conventionalCommits.scopes": ["redux"]
+  "conventionalCommits.scopes": [
+    "redux",
+    "Package-installation"
+  ]
 }
