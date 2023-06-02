@@ -1,6 +1,7 @@
 {
   "conventionalCommits.scopes": [
     "redux",
-    "Package-installation"
+    "Package-installation",
+    "welcomePage"
   ]
 }
