@@ -15,6 +15,7 @@ import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 import LocateMe from "@mui/icons-material/MyLocation";
+import feed from "../../assets/feed.svg";
 
 const LoginBtn = styled(Button)(({ theme }) => ({
   fontFamily: "FuturaPTCondBook",
@@ -170,11 +171,13 @@ export const WelcomePage = () => {
         </Box>
         <Box width={"50%"} height={"500px"} className="welcomeMainImg"></Box>
       </Stack>
-      <Stack width={"100%"} height={"300px"} bgcolor={"#EDF2F8"}></Stack>
+      <Stack width={"100%"} height={"300px"} bgcolor={"#EDF2F8"}>
+        <img src={feed} width={"200px"} alt="x" />
+      </Stack>
     </Box>
   );
 };
 
 // meal on your fingertip
 //retings&reviews
-//
+//food
