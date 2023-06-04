@@ -180,4 +180,4 @@ export const WelcomePage = () => {
 
 // meal on your fingertip
 //retings&reviews
-//food
+//healthy food - we are trying to give a healthy food direction
