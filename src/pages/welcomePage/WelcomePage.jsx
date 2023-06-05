@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   FormControl,
+  Grid,
   IconButton,
   InputAdornment,
   InputLabel,
@@ -15,7 +16,9 @@ import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 import LocateMe from "@mui/icons-material/MyLocation";
-import feed from "../../assets/feed.svg";
+import FeedbackPng from "../../assets/feedback_illust.png";
+import FoodPng from "../../assets/food_illust.png";
+import ClickPng from "../../assets/click_illust.png";
 
 const LoginBtn = styled(Button)(({ theme }) => ({
   fontFamily: "FuturaPTCondBook",
@@ -54,7 +57,7 @@ export const WelcomePage = () => {
   ];
   return (
     <Box>
-      <Stack width={"100%"} flexDirection={"row"}>
+      <Stack width={"100%"} mb={"25px"} flexDirection={"row"}>
         <Box width={"50%"} padding={"20px"}>
           <Stack
             flexDirection={"row"}
@@ -171,9 +174,49 @@ export const WelcomePage = () => {
         </Box>
         <Box width={"50%"} height={"500px"} className="welcomeMainImg"></Box>
       </Stack>
-      <Stack width={"100%"} height={"300px"} bgcolor={"#EDF2F8"}>
-        <img src={feed} width={"200px"} alt="x" />
-      </Stack>
+      <Grid
+        container
+        spacing={{ xs: 2, sm: 8, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+        width={"100%"}
+        // height={"300px"}
+        bgcolor={"#EDF2F8"}
+        alignItems={"center"}
+      >
+        <Grid
+          item
+          xs={3}
+          sm={4}
+          md={4}
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <img src={FeedbackPng} width={"200px"} alt="x" />
+        </Grid>
+        <Grid
+          item
+          xs={3}
+          sm={4}
+          md={4}
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <img src={FoodPng} width={"200px"} alt="x" />
+        </Grid>
+        <Grid
+          item
+          xs={3}
+          sm={4}
+          md={4}
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <img src={ClickPng} width={"200px"} alt="x" />
+        </Grid>
+      </Grid>
     </Box>
   );
 };
