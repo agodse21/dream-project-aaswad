@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  CircularProgress,
   FormControl,
   Grid,
   IconButton,
@@ -21,6 +22,8 @@ import FoodPng from "../../assets/food_illust.png";
 import ClickPng from "../../assets/click_illust.png";
 import ThaliPng from "../../assets/foodThali.png";
 import { Footer } from "../../components/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { getCurrentLocation } from "../../Redux/App/actions";
 
 const LoginBtn = styled(Button)(({ theme }) => ({
   fontFamily: "FuturaPTCondBook",
@@ -50,13 +53,19 @@ const IconBtn = styled(IconButton)(() => ({
     color: "#d32f2f",
   },
 }));
+
 export const WelcomePage = () => {
+  const dispatch = useDispatch();
+  const { current_location, error_msg, isError, isLoading } = useSelector(
+    (state) => state.AppReducer
+  );
   const typewritterArray = [
     "Hungry?",
     "Staying alone?",
     "Missing homely food?",
     "Searching for healthy food?",
   ];
+
   return (
     <Box>
       <Stack width={"100%"} mb={"25px"} flexDirection={"row"}>
@@ -112,7 +121,11 @@ export const WelcomePage = () => {
                   sx={{ fontFamily: "FuturaPTCondBook", fontSize: "20px" }}
                   htmlFor="mealSerchInpu"
                 >
-                  Search for meal center or dish,location
+                  {isLoading
+                    ? "Fetching your location..."
+                    : current_location?.full_address
+                    ? current_location?.full_address
+                    : "Search for meal center or dish,location"}
                 </InputLabel>
                 <OutlinedInput
                   color="error"
@@ -123,24 +136,34 @@ export const WelcomePage = () => {
                     fontSize: "20px",
                     paddingRight: "20px",
                   }}
+                  disabled={current_location?.full_address || isLoading}
                   endAdornment={
-                    <InputAdornment position="end">
-                      <IconBtn
-                        // onClick={handleClickShowPassword}
-                        // onMouseDown={handleMouseDownPassword}
-                        edge="end"
-                        sx={{ borderRadius: "0px" }}
-                      >
-                        <LocateMeIcon /> locate me
-                      </IconBtn>
-                    </InputAdornment>
+                    !isLoading &&
+                    !current_location?.full_address && (
+                      <InputAdornment position="end">
+                        <IconBtn
+                          onClick={() => dispatch(getCurrentLocation())}
+                          edge="end"
+                          sx={{ borderRadius: "0px" }}
+                        >
+                          <LocateMeIcon /> locate me
+                        </IconBtn>
+                      </InputAdornment>
+                    )
                   }
-                  label="Search for meal center or dish,location"
+                  label={
+                    isLoading
+                      ? "Fetching your location..."
+                      : current_location?.full_address
+                      ? current_location?.full_address
+                      : "Search for meal center or dish,location"
+                  }
                 />
               </FormControl>
               <Button
                 variant="contained"
                 style={{
+                  width: "130px",
                   backgroundColor: "#ff2e02",
                   fontFamily: "FuturaPTCondBook",
                   fontWeight: "bold",
@@ -148,7 +171,11 @@ export const WelcomePage = () => {
                   textTransform: "uppercase",
                 }}
               >
-                Find Meals
+                {isLoading ? (
+                  <CircularProgress size={25} style={{ color: "white" }} />
+                ) : (
+                  "Find Meals"
+                )}
               </Button>
             </Stack>
             <Stack mt={"20px"} flexDirection={"column"}>
@@ -319,12 +346,7 @@ export const WelcomePage = () => {
       </Grid>
       <Stack width={"100%"} flexDirection={"row"} alignItems={"center"}>
         <img src={ThaliPng} width={"50%"} alt="thali" />
-        <Stack
-          flexDirection={"column"}
-          alignItems={"center"}
-          // justifyContent={"center"}
-          width={"50%"}
-        >
+        <Stack flexDirection={"column"} alignItems={"center"} width={"50%"}>
           <Typography variant="h5" fontFamily="FuturaPTCondBook">
             <span
               style={{
