@@ -19,6 +19,8 @@ import LocateMe from "@mui/icons-material/MyLocation";
 import FeedbackPng from "../../assets/feedback_illust.png";
 import FoodPng from "../../assets/food_illust.png";
 import ClickPng from "../../assets/click_illust.png";
+import ThaliPng from "../../assets/foodThali.png";
+import { Footer } from "../../components/Footer";
 
 const LoginBtn = styled(Button)(({ theme }) => ({
   fontFamily: "FuturaPTCondBook",
@@ -101,7 +103,7 @@ export const WelcomePage = () => {
               fontFamily="FuturaPTCondBook"
               mt={"20px"}
             >
-              Search & pick favourite meal center.
+              Search & pick favourite meal center
             </Typography>
             <Stack flexDirection={"row"} mt={"30px"} gap={1} width={"100%"}>
               <FormControl sx={{ width: "80%" }}>
@@ -178,9 +180,9 @@ export const WelcomePage = () => {
         spacing={{ xs: 2, sm: 8, md: 3 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
         width={"100%"}
-        height={"330px"}
+        height={"350px"}
         bgcolor={"#EDF2F8"}
-        alignItems={"flex-start"} 
+        alignItems={"flex-start"}
       >
         <Grid
           item
@@ -210,7 +212,7 @@ export const WelcomePage = () => {
               variant="h5"
               fontFamily="FuturaPTCondBook"
               fontWeight={"bold"}
-              color="#d32f2f"
+              color="#ff2e02"
               textAlign={"center"}
             >
               Ratings & Reviews
@@ -254,7 +256,7 @@ export const WelcomePage = () => {
               variant="h5"
               fontFamily="FuturaPTCondBook"
               fontWeight={"bold"}
-              color="#d32f2f"
+              color="#ff2e02"
               textAlign={"center"}
             >
               Healthy Eats
@@ -298,7 +300,7 @@ export const WelcomePage = () => {
               variant="h5"
               fontFamily="FuturaPTCondBook"
               fontWeight={"bold"}
-              color="#d32f2f"
+              color="#ff2e02"
               textAlign={"center"}
             >
               Fingertip Feasts
@@ -315,6 +317,49 @@ export const WelcomePage = () => {
           </Box>
         </Grid>
       </Grid>
+      <Stack width={"100%"} flexDirection={"row"} alignItems={"center"}>
+        <img src={ThaliPng} width={"50%"} alt="thali" />
+        <Stack
+          flexDirection={"column"}
+          alignItems={"center"}
+          // justifyContent={"center"}
+          width={"50%"}
+        >
+          <Typography variant="h5" fontFamily="FuturaPTCondBook">
+            <span
+              style={{
+                fontFamily: "FuturaPTCondBook",
+                fontWeight: "bold",
+                textTransform: "capitalize",
+                fontSize: "55px",
+                color: "#ff2e02",
+              }}
+            >
+              Aaswad
+            </span>
+            your meal searching buddy
+          </Typography>
+          <Typography
+            variant="p"
+            fontSize={"20px"}
+            width={"75%"}
+            textAlign={"justify"}
+          >
+            Welcome to Aaswad, your ultimate destination for meal searching.
+            Discover an expansive selection of culinary delights, ranging from
+            local favorites to global treasures, all conveniently accessible
+            through our user-friendly website. Our intuitive search engine will
+            guide you to the perfect meal, whether you desire a sizzling steak,
+            a comforting bowl of pasta, or a refreshing vegan delight. Explore
+            detailed descriptions, enticing images, and customer reviews to make
+            an informed choice. With Aaswad, immerse yourself in a tantalizing
+            journey of flavors, allowing your taste buds to dance with delight
+            at every bite. Start your culinary adventure now and satisfy your
+            food cravings like never before!
+          </Typography>
+        </Stack>
+      </Stack>
+      <Footer />
     </Box>
   );
 };
