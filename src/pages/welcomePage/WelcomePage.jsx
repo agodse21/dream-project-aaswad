@@ -162,7 +162,6 @@ export const WelcomePage = () => {
                 fontSize={"24px"}
                 fontWeight={"bold"}
                 fontFamily="FuturaPTCondBook"
-                mt={"10px"}
               >
                 We are spreading all over{" "}
                 <span style={{ color: "#ff2e02", fontSize: "30px" }}>
@@ -179,9 +178,9 @@ export const WelcomePage = () => {
         spacing={{ xs: 2, sm: 8, md: 3 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
         width={"100%"}
-        // height={"300px"}
+        height={"330px"}
         bgcolor={"#EDF2F8"}
-        alignItems={"center"}
+        alignItems={"flex-start"} 
       >
         <Grid
           item
@@ -189,10 +188,43 @@ export const WelcomePage = () => {
           sm={4}
           md={4}
           display={"flex"}
+          flexDirection={"column"}
           justifyContent={"center"}
           alignItems={"center"}
+          gap={2}
         >
-          <img src={FeedbackPng} width={"200px"} alt="x" />
+          <img
+            src={FeedbackPng}
+            width={"25%"}
+            style={{ marginTop: "-15px" }}
+            alt="feedbackimg"
+          />
+          <Box
+            width={"100%"}
+            display={"flex"}
+            flexDirection={"column"}
+            justifyContent={"center"}
+            gap={1}
+          >
+            <Typography
+              variant="h5"
+              fontFamily="FuturaPTCondBook"
+              fontWeight={"bold"}
+              color="#d32f2f"
+              textAlign={"center"}
+            >
+              Ratings & Reviews
+            </Typography>
+            <Typography
+              width={"70%"}
+              variant="p"
+              margin={"auto"}
+              textAlign={"center"}
+            >
+              Ratings and reviews enrich the meal-searching experience with
+              valuable user feedback
+            </Typography>
+          </Box>
         </Grid>
         <Grid
           item
@@ -202,8 +234,41 @@ export const WelcomePage = () => {
           display={"flex"}
           justifyContent={"center"}
           alignItems={"center"}
+          flexDirection={"column"}
+          gap={2}
         >
-          <img src={FoodPng} width={"200px"} alt="x" />
+          <img
+            src={FoodPng}
+            width={"25%"}
+            style={{ marginTop: "-15px" }}
+            alt="x"
+          />
+          <Box
+            width={"100%"}
+            display={"flex"}
+            flexDirection={"column"}
+            justifyContent={"center"}
+            gap={1}
+          >
+            <Typography
+              variant="h5"
+              fontFamily="FuturaPTCondBook"
+              fontWeight={"bold"}
+              color="#d32f2f"
+              textAlign={"center"}
+            >
+              Healthy Eats
+            </Typography>
+            <Typography
+              width={"70%"}
+              variant="p"
+              margin={"auto"}
+              textAlign={"center"}
+            >
+              Discover a world of nourishing delights with our extensive
+              selection of healthy food options
+            </Typography>
+          </Box>
         </Grid>
         <Grid
           item
@@ -213,14 +278,43 @@ export const WelcomePage = () => {
           display={"flex"}
           justifyContent={"center"}
           alignItems={"center"}
+          flexDirection={"column"}
+          gap={1}
         >
-          <img src={ClickPng} width={"200px"} alt="x" />
+          <img
+            src={ClickPng}
+            width={"25%"}
+            style={{ marginTop: "-20px" }}
+            alt="x"
+          />
+          <Box
+            width={"100%"}
+            display={"flex"}
+            flexDirection={"column"}
+            justifyContent={"center"}
+            gap={1}
+          >
+            <Typography
+              variant="h5"
+              fontFamily="FuturaPTCondBook"
+              fontWeight={"bold"}
+              color="#d32f2f"
+              textAlign={"center"}
+            >
+              Fingertip Feasts
+            </Typography>
+            <Typography
+              width={"70%"}
+              variant="p"
+              margin={"auto"}
+              textAlign={"center"}
+            >
+              Discover a world of culinary delights at your fingertips with our
+              meal searching website
+            </Typography>
+          </Box>
         </Grid>
       </Grid>
     </Box>
   );
 };
-
-// meal on your fingertip
-//retings&reviews
-//healthy food - we are trying to give a healthy food direction
