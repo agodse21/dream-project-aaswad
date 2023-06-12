@@ -24,6 +24,7 @@ import ThaliPng from "../../assets/foodThali.png";
 import { Footer } from "../../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentLocation } from "../../Redux/App/actions";
+import { Toast } from "../../components/ReUsebleComponents/Toast";
 
 const LoginBtn = styled(Button)(({ theme }) => ({
   fontFamily: "FuturaPTCondBook",
@@ -56,7 +57,7 @@ const IconBtn = styled(IconButton)(() => ({
 
 export const WelcomePage = () => {
   const dispatch = useDispatch();
-  const { current_location, error_msg, isError, isLoading } = useSelector(
+  const { current_location, isError, isLoading } = useSelector(
     (state) => state.AppReducer
   );
   const typewritterArray = [
@@ -68,6 +69,11 @@ export const WelcomePage = () => {
 
   return (
     <Box>
+      <Toast
+        open={isError}
+        message={"Something went wrong,Please try again"}
+        variant={"error"}
+      />
       <Stack width={"100%"} mb={"25px"} flexDirection={"row"}>
         <Box width={"50%"} padding={"20px"}>
           <Stack
