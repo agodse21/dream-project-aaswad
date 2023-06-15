@@ -1,5 +1,5 @@
 import { Snackbar } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import MuiAlert from "@mui/material/Alert";
 
@@ -8,10 +8,13 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 
 export const Toast = ({ open, variant, message }) => {
-  const [show, setShow] = useState(open);
+  const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(!open);
   };
+  useEffect(() => {
+    setShow(open);
+  }, [open, setShow]);
   return (
     <Snackbar
       anchorOrigin={{ vertical: "bottom", horizontal: "center" }}

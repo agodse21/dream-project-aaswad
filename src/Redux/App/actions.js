@@ -22,3 +22,18 @@ export const getCurrentLocation = () => (dispatch) => {
     }
   });
 };
+
+export const SearchMealByInput = (payload) => (dispatch) => {
+  dispatch({ type: types.GET_CURRENT_LOCATION_REQUEST });
+  try {
+    dispatch({
+      type: types.GET_CURRENT_LOCATION_SUCCESS,
+      payload: { full_address: payload },
+    });
+  } catch (err) {
+    dispatch({
+      type: types.GET_CURRENT_LOCATION_FAILURE,
+      payload: "We are unable to search meal center",
+    });
+  }
+};

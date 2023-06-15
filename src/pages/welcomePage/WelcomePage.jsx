@@ -11,7 +11,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/logo.png";
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
@@ -23,7 +23,7 @@ import ClickPng from "../../assets/click_illust.png";
 import ThaliPng from "../../assets/foodThali.png";
 import { Footer } from "../../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentLocation } from "../../Redux/App/actions";
+import { SearchMealByInput, getCurrentLocation } from "../../Redux/App/actions";
 import { Toast } from "../../components/ReUsebleComponents/Toast";
 
 const LoginBtn = styled(Button)(({ theme }) => ({
@@ -57,6 +57,8 @@ const IconBtn = styled(IconButton)(() => ({
 
 export const WelcomePage = () => {
   const dispatch = useDispatch();
+  const [location, setLocation] = useState("");
+  const [error, setError] = useState("");
   const { current_location, isError, isLoading } = useSelector(
     (state) => state.AppReducer
   );
@@ -70,10 +72,11 @@ export const WelcomePage = () => {
   return (
     <Box>
       <Toast
-        open={isError}
-        message={"Something went wrong,Please try again"}
+        open={isError || error !== ""}
+        message={error ? error : "Something went wrong,Please try again"}
         variant={"error"}
       />
+
       <Stack width={"100%"} mb={"25px"} flexDirection={"row"}>
         <Box width={"50%"} padding={"20px"}>
           <Stack
@@ -125,7 +128,7 @@ export const WelcomePage = () => {
                 <InputLabel
                   color="error"
                   sx={{ fontFamily: "FuturaPTCondBook", fontSize: "20px" }}
-                  htmlFor="mealSerchInpu"
+                  htmlFor="mealSerchInput"
                 >
                   {isLoading
                     ? "Fetching your location..."
@@ -135,13 +138,15 @@ export const WelcomePage = () => {
                 </InputLabel>
                 <OutlinedInput
                   color="error"
-                  id="outlined-adornment-password"
+                  id="mealSerchInput"
                   type={"text"}
                   sx={{
                     fontFamily: "FuturaPTCondBook",
                     fontSize: "20px",
                     paddingRight: "20px",
                   }}
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
                   disabled={current_location?.full_address || isLoading}
                   endAdornment={
                     !isLoading &&
@@ -175,6 +180,11 @@ export const WelcomePage = () => {
                   fontWeight: "bold",
                   fontSize: "16px",
                   textTransform: "uppercase",
+                }}
+                onClick={() => {
+                  location === ""
+                    ? setError("Please enter your location")
+                    : dispatch(SearchMealByInput(location));
                 }}
               >
                 {isLoading ? (
