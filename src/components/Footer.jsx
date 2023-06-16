@@ -107,7 +107,7 @@ export const Footer = () => {
                 Partner With Us
               </Link>
               <Link
-                to={"/pertner-help-center"}
+                to={"/partner-help-center"}
                 style={{
                   color: "rgb(105, 105, 105)",
                   fontSize: "18px",
