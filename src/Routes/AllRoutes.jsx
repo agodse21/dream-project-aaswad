@@ -13,6 +13,8 @@ import { PartnerHelpCenter } from "../pages/partner-help-center/PartnerHelpCente
 import { Privacy } from "../pages/privacy/Privacy";
 import { Security } from "../pages/security/Security";
 import { Terms } from "../pages/terms-and-conditions/Terms";
+import { Login } from "../pages/authentication/Login";
+import { Register } from "../pages/authentication/Register";
 
 export const AllRoutes = () => {
   const aaswadlog = Cookies.get("current_location") || Cookies.get("aaswadlog");
@@ -38,6 +40,8 @@ export const AllRoutes = () => {
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/security" element={<Security />} />
       <Route path="/terms" element={<Terms />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Register />} />
     </Routes>
   );
 };

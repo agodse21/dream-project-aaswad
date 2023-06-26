@@ -2,6 +2,7 @@
   "conventionalCommits.scopes": [
     "redux",
     "Package-installation",
-    "welcomePage"
+    "welcomePage",
+    "server"
   ]
 }

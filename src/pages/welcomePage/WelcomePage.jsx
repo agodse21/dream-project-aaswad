@@ -14,7 +14,7 @@ import {
 import React, { useState } from "react";
 import Logo from "../../assets/logo.png";
 import { styled } from "@mui/material/styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 import LocateMe from "@mui/icons-material/MyLocation";
 import FeedbackPng from "../../assets/feedback_illust.png";
@@ -59,6 +59,7 @@ export const WelcomePage = () => {
   const dispatch = useDispatch();
   const [location, setLocation] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
   const { current_location, isError, isLoading } = useSelector(
     (state) => state.AppReducer
   );
@@ -89,7 +90,9 @@ export const WelcomePage = () => {
               <img width={"200px"} src={Logo} alt="logo" />
             </Link>
             <Stack flexDirection={"row"} gap={2} alignItems={"center"}>
-              <LoginBtn variant="text">login</LoginBtn>
+              <LoginBtn variant="text" onClick={() => navigate("/login")}>
+                login
+              </LoginBtn>
               <Button
                 variant="contained"
                 style={{
@@ -100,6 +103,7 @@ export const WelcomePage = () => {
                   fontSize: "18px",
                   textTransform: "capitalize",
                 }}
+                onClick={() => navigate("/signup")}
               >
                 Sign up
               </Button>
